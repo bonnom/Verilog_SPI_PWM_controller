@@ -19,7 +19,7 @@ except serial.SerialException as e:
 
 # Define the data to send (replace with your actual data)
 # Example data to send: uint8 and float
-clock_frequency=25*10**6
+clock_frequency=27*10**6
 
 data = bytearray()
 uint32_value_frequency = np.uint32(clock_frequency/511)

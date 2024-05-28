@@ -25,7 +25,7 @@ The SPI interface expects a total of 5 bytes to be transmitted in a single sessi
 
 ### Example Usage
 To set the PWM frequency to 1 Hz with duty cycle of 128:
-* Divide the clock frequency by 512, for example clk=25MHz: 25MHz/512 = 48923
+* Divide the clock frequency by 512, for example clk=27MHz: 27MHz/512 = 52734
 * Then send that number in 32-bits little endian
 * Then send 8-bit 128 little endian
 
