@@ -119,17 +119,17 @@ module spi_pwm #(
   // PWM generation using the divided clock
   always @(posedge divided_clk or negedge rst) begin
     if (!rst) begin
-      pwm_counter <= 0; // Reset counter
+      pwm_counter <= 1; // Reset counter
       pwm_out <= 0;     // Initialize PWM output
     end else begin
-      if (pwm_counter < duty_cycle) begin
+      if (pwm_counter <= duty_cycle) begin
         pwm_out <= 1'b1;
       end else begin
         pwm_out <= 1'b0;
       end
       pwm_counter <= pwm_counter + 1;
-      if (pwm_counter >= (1 << DUTY_CYCLE_WIDTH)) begin
-        pwm_counter <= 0; // Reset counter at end of PWM cycle
+      if (pwm_counter >=((1 << DUTY_CYCLE_WIDTH)-1)) begin
+        pwm_counter <= 1; // Reset counter at end of PWM cycle
       end
     end
   end
