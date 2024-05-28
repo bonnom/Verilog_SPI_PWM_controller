@@ -2,6 +2,12 @@
 
 This project contains a simple PWM (Pulse Width Modulation) controller implemented in Verilog with an SPI (Serial Peripheral Interface) interface. The module is designed to control the PWM signal's frequency and duty cycle through SPI communication. Unlike most SPI interfaces, this one transmits data in a less-significant-bit (LSB) first manner.
 
+## FPGA Implementation
+
+The code is written for the Lilygo - T-FPGA board. This FPGA board features an ESP32-S3 microcontroller alongside a Gowin GW1NSR-LV4CQN48PC6/I5 FPGA. The project files for the Gowin FPGA are included in this repository.
+
+The Arduino files for the ESP32-S3 and the python example to send data over the serial port to the ESP32-S3 is also included.
+
 ## Features
 
 - **SPI Interface**: Configurable clock divider and duty cycle through a 5-byte SPI transaction.
@@ -9,16 +15,13 @@ This project contains a simple PWM (Pulse Width Modulation) controller implement
 - **Clock Divider**: A 32-bit clock divider for adjusting the frequency of the PWM signal.
 - **Duty Cycle Control**: An 8-bit duty cycle value to control the PWM signal's high-time proportion.
 
+
 ## SPI Communication Protocol
 
 The SPI interface expects a total of 5 bytes to be transmitted in a single session:
 
 - **First 4 bytes**: A 32-bit unsigned integer to set the clock divider. This value determines the frequency of the PWM signal.
 - **Last byte**: An 8-bit unsigned integer to set the duty cycle. This value determines the high-time proportion of the PWM signal.
-
-## FPGA Implementation
-
-The code is written for the Lilygo - T-FPGA board. This FPGA board features an ESP32-S3 microcontroller alongside a Gowin GW1NSR-LV4CQN48PC6/I5 FPGA. The project files for the Gowin FPGA are included in this repository.
 
 ### Example Usage
 To set the PWM frequency to 1 Hz with duty cycle of 128:
@@ -34,6 +37,8 @@ To set the clock divider to 1000 and the duty cycle to 128 (50%), send the follo
 ### Directory Structure
 
 - **src/**: Contains the Verilog source code.
+- **Arduino/**: Contains the Arduino sketch to send SPI commands to the FPGA
+- **Python/**: Contains the python code to send the data over serial to the ESP32-S3
 
 ## License
 

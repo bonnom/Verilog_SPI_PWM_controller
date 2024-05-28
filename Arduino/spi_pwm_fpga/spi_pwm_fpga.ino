@@ -1,3 +1,7 @@
+/*
+For more info check out this Github
+https://github.com/Xinyuan-LilyGO/T-FPGA
+*/
 #include "Arduino.h"
 #include "SPI.h"
 #include "Wire.h"
