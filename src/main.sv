@@ -11,7 +11,6 @@ Serial transmission:
 */
 
 module spi_pwm #(
-  parameter integer DEFAULT_CLOCK_DIV = 17,  // Default clock divider for PWM frequency
   parameter integer DUTY_CYCLE_WIDTH = 8,
   parameter integer CLOCK_DIV_WIDTH = 32     // Width of the clock divider data
 )(
@@ -108,7 +107,7 @@ module spi_pwm #(
       div_counter <= 0;
       divided_clk <= 0;
     end else begin
-      if (div_counter >= pwm_clock_div) begin
+      if (div_counter > pwm_clock_div) begin
         divided_clk <= ~divided_clk;
         div_counter <= 0;
       end else begin
