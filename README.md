@@ -1,5 +1,3 @@
-Sure, here's a more detailed README for your Verilog SPI PWM controller project:
-
 # Verilog SPI PWM Controller
 
 This project contains a simple PWM (Pulse Width Modulation) controller implemented in Verilog with an SPI (Serial Peripheral Interface) interface. The module is designed to control the PWM signal's frequency and duty cycle through SPI communication. Unlike most SPI interfaces, this one transmits data in a less-significant-bit (LSB) first manner.
